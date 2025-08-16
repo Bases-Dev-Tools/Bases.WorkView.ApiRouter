@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:48317",
+      "sslPort": 44326
+    }
+  },
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "http://localhost:5401",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ORIGIN": "https://onbase.ternarytech.io",
+        "IDP": "/auth",
+        "API": "/api",
+        "GRANT_TYPE": "password",
+        "SCOPE": "evolution",
+        "CLIENT_ID": "55551aa3-e721-4cb2-8178-cdf4ae2fc401",
+        "CLIENT_SECRET": "P@ssw0rd",
+        "TENANT": "OnBase",
+        "USERNAME": "manager",
+        "PASSWORD": "P@ssw0rd",
+        "WORKVIEWAPP": "RapidCRM"
+      }
+    },
+    "https": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "https://localhost:7328;http://localhost:5401",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ORIGIN": "https://onbase.ternarytech.io",
+        "IDP": "/auth",
+        "API": "/api",
+        "GRANT_TYPE": "password",
+        "SCOPE": "evolution",
+        "CLIENT_ID": "55551aa3-e721-4cb2-8178-cdf4ae2fc401",
+        "CLIENT_SECRET": "P@ssw0rd",
+        "TENANT": "OnBase",
+        "USERNAME": "manager",
+        "PASSWORD": "P@ssw0rd",
+        "WORKVIEWAPP": "RapidCRM"
+      }
+    }
+  }
+}

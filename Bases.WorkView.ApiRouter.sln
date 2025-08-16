@@ -1,0 +1,45 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36301.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bases.WorkView.ApiRouter.AppHost", "Bases.WorkView.ApiRouter.AppHost\Bases.WorkView.ApiRouter.AppHost.csproj", "{061919CB-A594-4187-981F-A130146F447E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bases.WorkView.ApiRouter.ServiceDefaults", "Bases.WorkView.ApiRouter.ServiceDefaults\Bases.WorkView.ApiRouter.ServiceDefaults.csproj", "{F8E29003-BBD9-0BD8-4186-0FB40AB88445}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bases.WorkView.ApiRouter.ApiService", "Bases.WorkView.ApiRouter.ApiService\Bases.WorkView.ApiRouter.ApiService.csproj", "{76D0D0D9-45A9-D4CE-C364-A7BDD1E4E6F4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F8E29003-BBD9-0BD8-4186-0FB40AB88445} = {F8E29003-BBD9-0BD8-4186-0FB40AB88445}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bases.WorkView.ApiRouter.Tests", "Bases.WorkView.ApiRouter.Tests\Bases.WorkView.ApiRouter.Tests.csproj", "{5693094E-0957-6CB2-EFC1-3AEACE1108D5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{061919CB-A594-4187-981F-A130146F447E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{061919CB-A594-4187-981F-A130146F447E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{061919CB-A594-4187-981F-A130146F447E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{061919CB-A594-4187-981F-A130146F447E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8E29003-BBD9-0BD8-4186-0FB40AB88445}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8E29003-BBD9-0BD8-4186-0FB40AB88445}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8E29003-BBD9-0BD8-4186-0FB40AB88445}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8E29003-BBD9-0BD8-4186-0FB40AB88445}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76D0D0D9-45A9-D4CE-C364-A7BDD1E4E6F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76D0D0D9-45A9-D4CE-C364-A7BDD1E4E6F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76D0D0D9-45A9-D4CE-C364-A7BDD1E4E6F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76D0D0D9-45A9-D4CE-C364-A7BDD1E4E6F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5693094E-0957-6CB2-EFC1-3AEACE1108D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5693094E-0957-6CB2-EFC1-3AEACE1108D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5693094E-0957-6CB2-EFC1-3AEACE1108D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5693094E-0957-6CB2-EFC1-3AEACE1108D5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D921B6C0-1B9A-49A3-92F1-9499A970ACA8}
+	EndGlobalSection
+EndGlobal
