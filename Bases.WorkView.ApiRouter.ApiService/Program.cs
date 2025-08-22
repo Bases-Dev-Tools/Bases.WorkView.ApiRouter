@@ -5,11 +5,10 @@ using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args).RegisterServices();
 var app = builder.Build().RegisterMiddlewares();
+//app.MapWvClientApi();
+app.MapObjectAPI();
 
-
-
-
-await app.RunWorkViewClient();
+app.RunWorkViewClient();
 
 app.Run();
 

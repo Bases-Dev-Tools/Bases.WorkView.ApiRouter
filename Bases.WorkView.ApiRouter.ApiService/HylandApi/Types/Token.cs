@@ -17,13 +17,10 @@ public class Token
     [JsonPropertyName("scope")]
     public string Scope { get; set; } = "";
 
-    public DateTime Expiration { get; private set; }
+    private DateTime _experation { get; set; } = DateTime.Now;
+    public DateTime Expiration => _experation.AddSeconds(ExpiresIn);
 
-    public void SetExpiration()
-    {
-        Expiration = DateTime.UtcNow.AddSeconds(ExpiresIn);
-    }
-
+    public string AuthHeader => $"Bearer {AccessToken}";
     public bool IsExpired()
     {
         return Expiration < DateTime.UtcNow;

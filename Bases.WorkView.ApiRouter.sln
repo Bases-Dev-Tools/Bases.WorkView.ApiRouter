@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bases.WorkView.ApiRouter.Ap
 		{F8E29003-BBD9-0BD8-4186-0FB40AB88445} = {F8E29003-BBD9-0BD8-4186-0FB40AB88445}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bases.WorkView.ApiRouter.Tests", "Bases.WorkView.ApiRouter.Tests\Bases.WorkView.ApiRouter.Tests.csproj", "{5693094E-0957-6CB2-EFC1-3AEACE1108D5}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,10 +29,6 @@ Global
 		{76D0D0D9-45A9-D4CE-C364-A7BDD1E4E6F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76D0D0D9-45A9-D4CE-C364-A7BDD1E4E6F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76D0D0D9-45A9-D4CE-C364-A7BDD1E4E6F4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5693094E-0957-6CB2-EFC1-3AEACE1108D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5693094E-0957-6CB2-EFC1-3AEACE1108D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5693094E-0957-6CB2-EFC1-3AEACE1108D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5693094E-0957-6CB2-EFC1-3AEACE1108D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
