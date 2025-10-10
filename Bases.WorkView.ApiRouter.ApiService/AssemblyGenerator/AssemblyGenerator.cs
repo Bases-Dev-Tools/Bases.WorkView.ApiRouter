@@ -28,7 +28,7 @@ namespace Bases.WorkView.ApiRouter.ApiService.AssemblyGenerator
             ModuleBuilder myModule = myAssembly.DefineDynamicModule(
                 myAsmName.Name);
             Module = myModule; 
-            Module.
+            //Module.
         }
 
         public Type CreateType(WorkViewClass workViewClass)
@@ -142,6 +142,7 @@ namespace Bases.WorkView.ApiRouter.ApiService.AssemblyGenerator
                 peBuilder.Serialize(peBlob);
                 using var dllFileStream = new FileStream($"{assemblyFileName}.dll", FileMode.Create, FileAccess.Write);
                 peBlob.WriteContentTo(dllFileStream);
+                Console.WriteLine(dllFileStream.Name);
             }
             catch(Exception ex)
             {

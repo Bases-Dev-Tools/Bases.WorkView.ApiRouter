@@ -61,7 +61,7 @@ public static class WorkViewService
             clss.ClassType = WorkViewCache.CustomAssembly.CreateType(clss);
         }
         WorkViewCache.Application.Classes = WorkViewCache.Classes.Items;
-        WorkViewCache.CustomAssembly.SaveDll();        
+        //WorkViewCache.CustomAssembly.SaveDll();        
         return app;
     }
     public static async Task<string> GetTokenAsync()
