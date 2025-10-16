@@ -12,20 +12,21 @@ namespace Bases.WorkView.ApiRouter.ApiService.AssemblyGenerator
         {
             CreateAssembly(wvApp);
         }
-        public AssemblyBuilder Assembly {  get; set; }
+        public PersistedAssemblyBuilder Assembly {  get; set; }
         public ModuleBuilder Module { get; set; }
-        public void SaveDll() => AssemblyGenerator.Save(Assembly, Assembly.GetName().Name, true);
+        public void SaveDll() => Save(true);
         public void CreateAssembly(WorkViewApplication wvApplication)
         {
             AppDomain myDomain = AppDomain.CurrentDomain;
             AssemblyName myAsmName = new AssemblyName(wvApplication.Name.Replace(" ",""));
+            
             AssemblyBuilder myAssembly = AssemblyBuilder.DefineDynamicAssembly(
                 myAsmName,
                 AssemblyBuilderAccess.Run);
-            Assembly = myAssembly;
-            
+            var persist = new PersistedAssemblyBuilder(myAsmName, myAssembly);
+            Assembly = persist;            
 
-            ModuleBuilder myModule = myAssembly.DefineDynamicModule(
+            ModuleBuilder myModule = persist.DefineDynamicModule(
                 myAsmName.Name);
             Module = myModule; 
             //Module.
@@ -116,21 +117,25 @@ namespace Bases.WorkView.ApiRouter.ApiService.AssemblyGenerator
 
             return fbAttribute;
         }
-        public static void Save(AssemblyBuilder ab, string assemblyFileName, bool emitDebugInfo)
+        public void Save(bool emitDebugInfo)
         {
             try
             {
-                PersistedAssemblyBuilder pb = new PersistedAssemblyBuilder(ab.GetName(), ab);
-                MetadataBuilder metadataBuilder = pb.GenerateMetadata(out BlobBuilder ilStream, out _, out MetadataBuilder pdbBuilder);
-
+                //try
+                string path = $"{Assembly.FullName}.dll";
+                path = Path.GetFullPath(path);
+                Console.WriteLine(path);
+                //Assembly.Save(path);
+                //return;
+                MetadataBuilder metadataBuilder = Assembly.GenerateMetadata(out BlobBuilder ilStream, out _, out MetadataBuilder pdbBuilder);
                 BlobBuilder portablePdbBlob = new BlobBuilder();
                 PortablePdbBuilder portablePdbBuilder = new PortablePdbBuilder(pdbBuilder, metadataBuilder.GetRowCounts(), entryPoint: default);
                 BlobContentId pdbContentId = portablePdbBuilder.Serialize(portablePdbBlob);
-                using FileStream pdbFileStream = new FileStream($"{assemblyFileName}.pdb", FileMode.Create, FileAccess.Write);
+                using FileStream pdbFileStream = new FileStream($"{Assembly.FullName}.pdb", FileMode.Create, FileAccess.Write);
                 portablePdbBlob.WriteContentTo(pdbFileStream);
 
                 DebugDirectoryBuilder debugDirectoryBuilder = new DebugDirectoryBuilder();
-                debugDirectoryBuilder.AddCodeViewEntry($"{assemblyFileName}.pdb", pdbContentId, portablePdbBuilder.FormatVersion);
+                debugDirectoryBuilder.AddCodeViewEntry($"{Assembly.FullName}.pdb", pdbContentId, portablePdbBuilder.FormatVersion);
 
                 ManagedPEBuilder peBuilder = new ManagedPEBuilder(
                                 header: new PEHeaderBuilder(imageCharacteristics: Characteristics.ExecutableImage | Characteristics.Dll),
@@ -140,7 +145,7 @@ namespace Bases.WorkView.ApiRouter.ApiService.AssemblyGenerator
 
                 BlobBuilder peBlob = new BlobBuilder();
                 peBuilder.Serialize(peBlob);
-                using var dllFileStream = new FileStream($"{assemblyFileName}.dll", FileMode.Create, FileAccess.Write);
+                using var dllFileStream = new FileStream($"{Assembly.FullName}.dll", FileMode.Create, FileAccess.Write);
                 peBlob.WriteContentTo(dllFileStream);
                 Console.WriteLine(dllFileStream.Name);
             }
