@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.OpenApi;
 using Refit;
 using System.Net;
 using System.Text.Json.Serialization;
+using System.ComponentModel.Design;
 
 var builder = WebApplication.CreateBuilder(args).RegisterServices();
 var app = builder.Build().RegisterMiddlewares();
